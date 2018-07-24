@@ -20,6 +20,7 @@ public class StudentDao implements Serializable{
 	Map<String, String> map = null;
 	int pageSize = 10;
 	
+	@SuppressWarnings("resource")
 	public List<Student> find() {	
 		Jedis jedis = new Jedis("101.132.147.78",6379);
 	    jedis.auth("admin");
@@ -73,9 +74,11 @@ public class StudentDao implements Serializable{
 			student.setAvgscore(Integer.valueOf(avgscore));
 			list.add(student);
         }
+        jedis.close();
         return list;
 	}
 	
+	@SuppressWarnings("resource")
 	public void delete(String id){
 		Jedis jedis = new Jedis("101.132.147.78",6379);
 	    jedis.auth("admin");
@@ -84,41 +87,33 @@ public class StudentDao implements Serializable{
 	    System.out.println(jedis.zscore("avgscore","person:35"));
 	}
 	
+	@SuppressWarnings("resource")
 	public void add(String id,String name,String birthday,String description,int avgscore) {
 		Jedis jedis = new Jedis("101.132.147.78",6379);
 	    jedis.auth("admin");
-	    long count = jedis.zcard("avgscore");
-	    //Date date = new Date();
-//	    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); 
-//	    String str = format.format(birthday); 
+	    long count = jedis.zcard("avgscore"); 
+	    System.out.println(count);
 	    map = new HashMap<String, String>();
 		map.put("id", count+1+"");
 		map.put("name", name);
 		map.put("birthday",birthday);
 		map.put("description",description);
-		//int avgscore = new Random().nextInt(100);
 		map.put("avgscore",avgscore+"");
-		//jedis.rpush("personid", i+"");		// 保存用户id
 		jedis.hmset("person:" + count+1, map);	// 保存用户信息
-		jedis.zadd("avgscore",avgscore, "person:" + id);
+		jedis.zadd("avgscore",avgscore, "person:" + count+1);
 		System.out.println("新增成功");
 	}
 	
+	@SuppressWarnings("resource")
 	public void update(String id,String name,String birthday,String description,int avgscore) {
 		Jedis jedis = new Jedis("101.132.147.78",6379);
 	    jedis.auth("admin");
-	    //long count = jedis.zcard("avgscore");
-	    //Date date = new Date();
-//	    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); 
-//	    String str = format.format(birthday); 
 	    map = new HashMap<String, String>();
 		map.put("id", id);
 		map.put("name", name);
 		map.put("birthday",birthday);
 		map.put("description",description);
-		//int avgscore = new Random().nextInt(100);
 		map.put("avgscore",avgscore+ "");
-		//jedis.rpush("personid", i+"");		// 保存用户id
 		jedis.hmset("person:" +id, map);	// 保存用户信息
 		jedis.zadd("avgscore",avgscore, "person:" + id);
 		System.out.println("新增成功");

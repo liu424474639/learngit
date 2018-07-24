@@ -35,7 +35,7 @@
      <form action="add.do" method="post">
        <p>
             <label for="title" >id:</label>
-            <input type="text" id="title" name="id" value=<%=session.getAttribute("count") %> align="left" readonly="readonly"/>
+            <input type="text" id="title" name="id" value=<%=session.getAttribute("addId") %> align="left" readonly="readonly"/>
        </p>
        <p>
             <label for="title" >name:</label>

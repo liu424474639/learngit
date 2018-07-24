@@ -26,20 +26,7 @@ display:inline;
     	//request.setAttribute("page",page);
         self.location= "jump.do?page="+page;   	
     }
-    function up(){
-    	var page = request.getAttribute("page");
-    	if(page<0 && page==0){
-    		request.setAttribute("page",0);
-    		self.location="FindStudentServlet.do";
-    	}
-    }
-    function next(){
-    	var page = request.getAttribute("page");
-    	var count = session.getAttribute("count");
-    	if(page>(count/10+1)){
-    		self.location= "jump.do?page="+(count/10+1);
-    	}
-    }
+    
 </script>
 </head>
 <body>

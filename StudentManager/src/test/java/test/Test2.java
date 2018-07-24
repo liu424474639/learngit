@@ -1,6 +1,7 @@
 package test;
 
 import java.text.DateFormat;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,7 +19,6 @@ import dao.StudentDao;
 import entity.Student;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Tuple;
-import util.SerializeUtil;
 
 public class Test2 {
 

@@ -1,15 +1,12 @@
 package web;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import dao.StudentDao;
 import entity.Student;
 import redis.clients.jedis.Jedis;
@@ -50,17 +47,19 @@ public class FindStudentServlet extends HttpServlet {
 			HttpServletRequest req,
 			HttpServletResponse res)
 				throws ServletException, IOException {
-		StudentDao dao = new StudentDao();
-		List<Student> list = dao.find();
+		@SuppressWarnings("resource")
 		Jedis jedis = new Jedis("101.132.147.78",6379);
 	    jedis.auth("admin");
-	    HttpSession session = req.getSession();
 	    long c = jedis.zcard("avgscore");
-	    String count = String.valueOf(c+1);
-	    session.setAttribute("count", count);
+		StudentDao dao = new StudentDao();
+		List<Student> list = dao.find();
+	    HttpSession session = req.getSession();
+	    //String count = String.valueOf(c+1);
+	    session.setAttribute("count", c);
+	    session.setAttribute("addId", c+1);
+	    req.setAttribute("count", c);
 	    int page = 1;
 	    req.setAttribute("page", page);
-	    req.setAttribute("today", new Date());
 		req.setAttribute("list", list);
 		req.getRequestDispatcher("/findStudent.jsp").forward(req, res);
 	}
@@ -70,25 +69,41 @@ public class FindStudentServlet extends HttpServlet {
 			HttpServletResponse res)
 				throws ServletException, IOException {
 		String path = req.getServletPath();
-		//HttpSession session = req.getSession();
 		StudentDao dao = new StudentDao();
 		int page = Integer.valueOf(req.getParameter("page"));
+		HttpSession session = req.getSession();
+		int count = Integer.valueOf(session.getAttribute("count").toString());
+		int totalPage = 0;
+		if(count!=0 && count%10 == 0){
+			totalPage = count/10;
+		}else{
+			totalPage = count/10 + 1;
+		}
+		//System.out.println(page);
+		//System.out.println(totalPage);
         if("/up.do".equals(path)){
-        	if(page<0 && page==1){
-        		req.setAttribute("page",0);
-        		res.sendRedirect("FindStudentServlet.do");
+        	if(page==1 || page < 1){
+        		req.getRequestDispatcher("FindStudentServlet.do").forward(req, res);
         		return;
         	}else{
         		 page = page - 1;
-    		     req.setAttribute("page", page);
         	}
 		}else if("/next.do".equals(path)){
-			 page = page + 1;
-			 req.setAttribute("page", page);	 
+			if(page==totalPage || page>totalPage){
+				//System.out.println(page);
+				//System.out.println(totalPage);
+				page = totalPage;
+			}else{
+				page = page + 1;
+			}	 
 		}else if("/jump.do".equals(path)){
-             page = page*1;
-             req.setAttribute("page", page);
+			if(page<1){
+				page = 1;
+			}
+			if(page>totalPage)
+             page = totalPage;
 		}
+        req.setAttribute("page", page);
         List<Student> list = dao.paging(page);
         req.setAttribute("list", list);
 		req.getRequestDispatcher("/findStudent.jsp").forward(req, res);

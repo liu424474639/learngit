@@ -1,12 +1,10 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Date;
-
 public class Student implements Serializable {
 
 	/**
-	 * 
+	 * Student bean
 	 */
 	private static final long serialVersionUID = 1L;
     private String id;
