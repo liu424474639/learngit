@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="com.biz.lesson.test.dao.admin.MainMenuTest" time="1.98" errors="1" skipped="0">
+<testsuite tests="2" failures="0" name="com.biz.lesson.test.dao.admin.MainMenuTest" time="9.047" errors="1" skipped="0">
   <properties>
     <property name="idea.version" value="2017.1"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -62,8 +62,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.biz.lesson.test.dao.admin.MainMenuTest" name="testAddMainMenu" time="1.611"/>
-  <testcase classname="com.biz.lesson.test.dao.admin.MainMenuTest" name="testSaveMenuItem" time="0.369">
+  <testcase classname="com.biz.lesson.test.dao.admin.MainMenuTest" name="testAddMainMenu" time="7.947"/>
+  <testcase classname="com.biz.lesson.test.dao.admin.MainMenuTest" name="testSaveMenuItem" time="1.1">
     <error message="could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement" type="org.springframework.dao.DataIntegrityViolationException">org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:259)
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:225)
@@ -211,10 +211,10 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExce
 </error>
     <system-out>Hibernate: insert into usr_mainmenu (code, companytype, description, icon, name, nameen) values (?, ?, ?, ?, ?, ?)
 Hibernate: insert into usr_menuitem (code, description, icon, link, mainmenu_id, name, nameen, symbol) values (?, ?, ?, ?, ?, ?, ?, ?)
-07-31 20:21:31 [WARN ] SqlExceptionHelper:144 - SQL Error: 1048, SQLState: 23000
-07-31 20:21:31 [ERROR] SqlExceptionHelper:146 - Column &apos;nameen&apos; cannot be null
-07-31 20:21:31 [WARN ] SqlExceptionHelper$StandardWarningHandler:232 - SQL Warning Code: 1048, SQLState: 23000
-07-31 20:21:31 [WARN ] SqlExceptionHelper$StandardWarningHandler:233 - Column &apos;nameen&apos; cannot be null
+08-01 00:09:38 [WARN ] SqlExceptionHelper:144 - SQL Error: 1048, SQLState: 23000
+08-01 00:09:38 [ERROR] SqlExceptionHelper:146 - Column &apos;nameen&apos; cannot be null
+08-01 00:09:38 [WARN ] SqlExceptionHelper$StandardWarningHandler:232 - SQL Warning Code: 1048, SQLState: 23000
+08-01 00:09:38 [WARN ] SqlExceptionHelper$StandardWarningHandler:233 - Column &apos;nameen&apos; cannot be null
 Hibernate: select mainmenu0_.id as id1_6_, mainmenu0_.code as code2_6_, mainmenu0_.companytype as companyt3_6_, mainmenu0_.description as descript4_6_, mainmenu0_.icon as icon5_6_, mainmenu0_.name as name6_6_, mainmenu0_.nameen as nameen7_6_ from usr_mainmenu mainmenu0_
 Hibernate: select menuitems0_.mainmenu_id as mainmenu9_6_0_, menuitems0_.id as id1_7_0_, menuitems0_.id as id1_7_1_, menuitems0_.code as code2_7_1_, menuitems0_.description as descript3_7_1_, menuitems0_.icon as icon4_7_1_, menuitems0_.link as link5_7_1_, menuitems0_.mainmenu_id as mainmenu9_7_1_, menuitems0_.name as name6_7_1_, menuitems0_.nameen as nameen7_7_1_, menuitems0_.symbol as symbol8_7_1_ from usr_menuitem menuitems0_ where menuitems0_.mainmenu_id=? order by menuitems0_.code
 Hibernate: delete from usr_mainmenu where id=?

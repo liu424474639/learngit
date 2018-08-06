@@ -1,11 +1,12 @@
-<%@page contentType="text/html; charset=utf-8" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@taglib prefix="lesson" tagdir="/WEB-INF/tags" %>
-<%@taglib prefix="lessonTag" uri="http://com.biz.lesson/tag/core" %>
+<%@ page contentType="text/html; charset=utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<lesson:page title="subject.title.${cmd}">
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="lesson" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="lessonTag" uri="http://com.biz.lesson/tag/core" %>
+<lesson:page title="student.title.list">
     <jsp:attribute name="script">
 
         <link rel="stylesheet" href="static-resource/ace/assets/css/jquery.gritter.min.css" />
@@ -314,27 +315,28 @@
                                 <input type="hidden" value="${cmd}" id="cmd"/>
                                 <input   type="hidden" id="logo" name="logo" value="${admin.logo}">
 
+                                <%--<div class="form-group">--%>
+                                    <%--<label class="col-sm-3 control-label no-padding-right">--%>
+                                        <%--subjectId--%>
+                                    <%--</label>--%>
+
+                                    <%--<div class="col-sm-3">--%>
+                                        <%--<input type="text" autocomplete="off" id="subjectId" name="subjectId" maxlength="50" value="${subject.subjectId}"--%>
+                                               <%--class="required form-control"/>--%>
+                                    <%--</div>--%>
+
+                                        <%--&lt;%&ndash;<label class="col-md-2 control-label no-padding-right" for="nameEn">&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;<spring:message code="user.nameEn"/>&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;</label>&ndash;%&gt;--%>
+
+                                        <%--&lt;%&ndash;<div class="col-sm-3">&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;<input type="text" autocomplete="off" id="nameEn" name="nameEn" maxlength="50" value="${admin.nameEn}"&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;class="required form-control"/>&ndash;%&gt;--%>
+                                        <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                                <%--</div>--%>
+
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="name">
-                                        subjectId
-                                    </label>
-
-                                    <div class="col-sm-3">
-                                        <input type="text" autocomplete="off" id="gradeId" name="gradeId" maxlength="50" value="${grade.gradeId}"
-                                               class="required form-control"/>
-                                    </div>
-
-                                        <%--<label class="col-md-2 control-label no-padding-right" for="nameEn">--%>
-                                        <%--<spring:message code="user.nameEn"/>--%>
-                                        <%--</label>--%>
-
-                                        <%--<div class="col-sm-3">--%>
-                                        <%--<input type="text" autocomplete="off" id="nameEn" name="nameEn" maxlength="50" value="${admin.nameEn}"--%>
-                                        <%--class="required form-control"/>--%>
-                                        <%--</div>--%>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="name">
+                                    <label class="col-sm-3 control-label no-padding-right" >
                                         学科名
                                     </label>
 
@@ -343,29 +345,6 @@
                                                class="required form-control"/>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="name">
-                                        学科人数
-                                    </label>
-
-                                    <div class="col-sm-3">
-                                        <input type="text" autocomplete="off" id="subjectNumber" name="subjectNumber" maxlength="50" value="${subject.subjectNumber}"
-                                               class="required form-control"/>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="name">
-                                        平均分
-                                    </label>
-
-                                    <div class="col-sm-3">
-                                        <input type="text" autocomplete="off" id="subjectAverage" name="subjectAverage" maxlength="50" value="${subject.subjectAverage}"
-                                               class="required form-control"/>
-                                    </div>
-                                </div>
-
 
 
                                 <sec:authorize ifAnyGranted="OPT_USER_ADD,OPT_USER_EDIT">

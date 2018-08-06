@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.biz.lesson.test.dao.admin.MainMenuTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.987 sec <<< FAILURE!
-testSaveMenuItem(com.biz.lesson.test.dao.admin.MainMenuTest)  Time elapsed: 0.369 sec  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.084 sec <<< FAILURE!
+testSaveMenuItem(com.biz.lesson.test.dao.admin.MainMenuTest)  Time elapsed: 1.1 sec  <<< ERROR!
 org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:259)
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:225)

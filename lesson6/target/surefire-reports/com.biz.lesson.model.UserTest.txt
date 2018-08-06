@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.biz.lesson.model.UserTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.143 sec <<< FAILURE!
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.083 sec <<< FAILURE!
 testUserServiceTypeMap1(com.biz.lesson.model.UserTest)  Time elapsed: 0.004 sec  <<< ERROR!
 java.lang.IllegalArgumentException: [Assertion failed] - this expression must be true
 	at org.springframework.util.Assert.isTrue(Assert.java:68)

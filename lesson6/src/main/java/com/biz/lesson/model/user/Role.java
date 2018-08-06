@@ -18,6 +18,7 @@ import javax.persistence.UniqueConstraint;
 import com.biz.lesson.model.PersistentAble;
 import com.biz.lesson.vo.I18nName;
 
+
 /**
  * 角色
  */

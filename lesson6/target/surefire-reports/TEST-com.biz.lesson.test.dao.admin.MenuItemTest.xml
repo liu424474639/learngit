@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="com.biz.lesson.test.dao.admin.MenuItemTest" time="0.412" errors="1" skipped="0">
+<testsuite tests="2" failures="0" name="com.biz.lesson.test.dao.admin.MenuItemTest" time="2.333" errors="1" skipped="0">
   <properties>
     <property name="idea.version" value="2017.1"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -62,8 +62,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.biz.lesson.test.dao.admin.MenuItemTest" name="testAddMainMenu" time="0.269"/>
-  <testcase classname="com.biz.lesson.test.dao.admin.MenuItemTest" name="testSaveMenuItem" time="0.143">
+  <testcase classname="com.biz.lesson.test.dao.admin.MenuItemTest" name="testAddMainMenu" time="1.524"/>
+  <testcase classname="com.biz.lesson.test.dao.admin.MenuItemTest" name="testSaveMenuItem" time="0.809">
     <error message="org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.biz.lesson.model.user.MenuItem.mainMenu -&gt; com.biz.lesson.model.user.MainMenu; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.biz.lesson.model.user.MenuItem.mainMenu -&gt; com.biz.lesson.model.user.MainMenu" type="org.springframework.dao.InvalidDataAccessApiUsageException">org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.biz.lesson.model.user.MenuItem.mainMenu -&gt; com.biz.lesson.model.user.MainMenu; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.biz.lesson.model.user.MenuItem.mainMenu -&gt; com.biz.lesson.model.user.MainMenu
 	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:381)
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:227)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="com.biz.lesson.model.UserTest" time="0.013" errors="2" skipped="0">
+<testsuite tests="3" failures="0" name="com.biz.lesson.model.UserTest" time="0.014" errors="2" skipped="0">
   <properties>
     <property name="idea.version" value="2017.1"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -62,7 +62,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.biz.lesson.model.UserTest" name="testUserServiceTypeMap0" time="0.009"/>
+  <testcase classname="com.biz.lesson.model.UserTest" name="testUserServiceTypeMap0" time="0.01"/>
   <testcase classname="com.biz.lesson.model.UserTest" name="testUserServiceTypeMap1" time="0.004">
     <error message="[Assertion failed] - this expression must be true" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: [Assertion failed] - this expression must be true
 	at org.springframework.util.Assert.isTrue(Assert.java:68)

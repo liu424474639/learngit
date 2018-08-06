@@ -1,5 +1,6 @@
 package com.biz.lesson.web.controller.student;
 
+import com.biz.lesson.business.student.SubjectService;
 import com.biz.lesson.dao.student.SubjectCrudRepository;
 import com.biz.lesson.dao.student.SubjectRepository;
 import com.biz.lesson.model.user.Subject;
@@ -26,6 +27,9 @@ public class SubjectController {
     @Autowired
     private SubjectCrudRepository subjectCrudRepository;
 
+    @Autowired
+    private SubjectService subjectService;
+
     @RequestMapping("list")
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView("student/subject/list");
@@ -45,16 +49,14 @@ public class SubjectController {
 
     @RequestMapping("/save_add")
     public ModelAndView save_add(HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView("redirect:/list");
+        ModelAndView modelAndView = new ModelAndView("redirect:list.do");
         Subject subject = new Subject();
-        String subjectId = request.getParameter("subjectId");
         String subjectName = request.getParameter("subjectName");
-        String subjectNumber = request.getParameter("subjectNumber");
-        String subjectAverage = request.getParameter("subjectAverage");
-        subject.setSubjectId(Integer.valueOf(subjectId));
-        subject.setStudentName(subjectName);
+//        String subjectNumber = request.getParameter("subjectNumber");
+//        String subjectAverage = request.getParameter("subjectAverage");
+//        subject.setStudentName(subjectName);
         subject.setSubjectName(subjectName);
-        subject.setSubjectAverage(Integer.valueOf(subjectAverage));
+//        subject.setSubjectAverage(Integer.valueOf(subjectAverage));
         subjectCrudRepository.save(subject);
         System.out.println(subject.toString());
         return modelAndView;
@@ -62,14 +64,37 @@ public class SubjectController {
 
     @RequestMapping("/save_delete")
     @ResponseBody
-    public Boolean save_delete(@RequestParam("subjectId") Integer gradeId) {
-        Subject subject = subjectRepository.findSubjectBySubjectId(gradeId);
+    public ModelAndView save_delete(@RequestParam("subjectId") Integer subjectId) throws Exception{
+        ModelAndView modelAndView = new ModelAndView("redirect:list.do");
+        Subject subject = subjectCrudRepository.findOne(subjectId);
         System.out.println(subject);
         try {
             subjectCrudRepository.delete(subject);
-            return true;
+            return modelAndView;
         } catch (Exception e) {
-            return false;
+            return modelAndView;
         }
     }
+
+    @RequestMapping("/update")
+    public ModelAndView update(@RequestParam("subjectId") Integer subjectId) throws Exception {
+        ModelAndView modelAndView = new ModelAndView("student/subject/update");
+        modelAndView.addObject("subjectId",subjectId);
+        Subject subject = subjectService.findSubject(subjectId);
+        modelAndView.addObject("subject",subject);
+        return modelAndView;
+    }
+
+    @RequestMapping("save_update")
+    @ResponseBody
+    public ModelAndView save_update(HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView("redirect:list.do");
+        Integer subjectId = Integer.valueOf(request.getParameter("subjectId"));
+        String subjectName = request.getParameter("subjectName");
+        int subjectNumber = Integer.parseInt(request.getParameter("subjectNumber"));
+        int subjectAverage = Integer.parseInt(request.getParameter("subjectAverage"));
+        subjectService.updateSubject(subjectId,subjectName,subjectNumber,subjectAverage);
+        return modelAndView;
+    }
+
 }

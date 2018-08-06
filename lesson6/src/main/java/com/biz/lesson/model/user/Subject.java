@@ -1,6 +1,8 @@
 package com.biz.lesson.model.user;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by lyx on 2018/7/29.
@@ -10,19 +12,34 @@ import javax.persistence.*;
 public class Subject {
 
 
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Id
     private Integer subjectId;
 
     @Column(length = 100)
     private String subjectName;
 
     @Column(length = 100)
-    private String studentName;
+    //这里本应该是subjectNumber，即选课个数，在此以studentName代替选课个数
+    private Integer subjectNumber;
 
     @Column(length = 100)
     private Integer SubjectAverage;
 
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Id
+    @ManyToMany(targetEntity=Student.class,cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinTable(name = "student_subject", joinColumns = {
+            @JoinColumn(name = "subjectId", referencedColumnName = "subjectId")},inverseJoinColumns = {
+            @JoinColumn(name = "id", referencedColumnName = "id")})
+    private Set<Student> students = new HashSet<Student>();
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
+
     public Integer getSubjectId() {
         return subjectId;
     }
@@ -39,12 +56,12 @@ public class Subject {
         this.subjectName = subjectName;
     }
 
-    public String getStudentName() {
-        return studentName;
+    public Integer getSubjectNumber() {
+        return subjectNumber;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public void setSubjectNumber(Integer subjectNumber) {
+        this.subjectNumber = subjectNumber;
     }
 
     public Integer getSubjectAverage() {
@@ -60,8 +77,9 @@ public class Subject {
         return "Subject{" +
                 "subjectId=" + subjectId +
                 ", subjectName='" + subjectName + '\'' +
-                ", studentName='" + studentName + '\'' +
+                ", subjectNumber='" + subjectNumber + '\'' +
                 ", SubjectAverage=" + SubjectAverage +
+                ", students=" + students +
                 '}';
     }
 }

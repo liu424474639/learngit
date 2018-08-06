@@ -315,64 +315,12 @@
                                 <input   type="hidden" id="logo" name="logo" value="${admin.logo}">
 
                                 <%--<div class="form-group">--%>
-                                    <%--<label class="col-sm-3 control-label no-padding-right" for="userId">--%>
-                                        <%--<spring:message code="student.birthday"/>--%>
+                                    <%--<label class="col-sm-3 control-label no-padding-right">--%>
+                                        <%--gradeId--%>
                                     <%--</label>--%>
 
                                     <%--<div class="col-sm-3">--%>
-                                        <%--<div class="input-group">--%>
-                                            <%--<input ${empty student.id? '' : 'readonly'} type="text" autocomplete="off" id="userId"--%>
-                                                                                           <%--name="userId"--%>
-                                                                                           <%--value="${admin.userId}"--%>
-                                                                                           <%--maxlength="20"--%>
-                                                                                           <%--class="required form-control"/>--%>
-                                            <%--<span class="input-group-btn">--%>
-                                             <%--<button class="btn btn-sm btn-primary " onclick="checkUserNameExist();" type="button">--%>
-                                                 <%--<i class="ace-icon fa fa-check-circle-o"></i>--%>
-                                                 <%--<spring:message code="user.nameExist"/></button>--%>
-                                             <%--</span>--%>
-
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--<c:if test="${empty admin.userId }">--%>
-                                        <%--<label class="col-md-2 control-label no-padding-right" for="password">--%>
-                                            <%--<spring:message code="user.password"/>--%>
-                                        <%--</label>--%>
-
-                                        <%--<div class="col-sm-3">--%>
-                                            <%--<input type="text" autocomplete="off" id="password" maxlength="50" name="pwd"--%>
-                                                   <%--value="" class="required form-control"/>--%>
-                                        <%--</div>--%>
-                                    <%--</c:if>--%>
-                                <%--</div>--%>
-                                <%--<c:if test="${empty admin}">--%>
-                                    <%--<div class="form-group">--%>
-                                        <%--<label class="col-sm-3 control-label no-padding-right" for="pwd">--%>
-                                            <%--<spring:message code="user.password"/>--%>
-                                        <%--</label>--%>
-
-                                        <%--<div class="col-sm-3">--%>
-                                            <%--<input type="text" autocomplete="off" id="pwd" name="pwd" class="required form-control"/>--%>
-                                        <%--</div>--%>
-
-                                        <%--<label class="col-md-2 control-label no-padding-right" for="repeat">--%>
-                                            <%--<spring:message code="user.repeat"/>--%>
-                                        <%--</label>--%>
-
-                                        <%--<div class="col-sm-3">--%>
-                                            <%--<input type="text" autocomplete="off" id="repeat"--%>
-                                                   <%--placeholder="<spring:message code="common.password.repeat"/>"--%>
-                                                   <%--name="repeat" class="required form-control"/>--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                <%--</c:if>--%>
-                                <%--<div class="form-group">--%>
-                                    <%--<label class="col-sm-3 control-label no-padding-right" for="name">--%>
-                                        <%--ID--%>
-                                    <%--</label>--%>
-
-                                    <%--<div class="col-sm-3">--%>
-                                        <%--<input type="text" autocomplete="off" id="id" name="name" maxlength="50" value="${student.id}"--%>
+                                        <%--<input type="text" autocomplete="off" id="gradeId" name="gradeId" maxlength="50" value="${grade.gradeId}"--%>
                                                <%--class="required form-control"/>--%>
                                     <%--</div>--%>
 
@@ -386,66 +334,8 @@
                                         <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
                                 <%--</div>--%>
 
-                                <%--<div class="col-sm-4">--%>
-                                    <%--<div class="widget-box">--%>
-                                        <%--<div class="widget-header">--%>
-                                            <%--<h4 class="widget-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自定义文件输入</font></font></h4>--%>
-
-                                            <%--<div class="widget-toolbar">--%>
-                                                <%--<a href="#" data-action="collapse">--%>
-                                                    <%--<i class="ace-icon fa fa-chevron-up"></i>--%>
-                                                <%--</a>--%>
-
-                                                <%--<a href="#" data-action="close">--%>
-                                                    <%--<i class="ace-icon fa fa-times"></i>--%>
-                                                <%--</a>--%>
-                                            <%--</div>--%>
-                                        <%--</div>--%>
-
-                                        <%--<div class="widget-body">--%>
-                                            <%--<div class="widget-main">--%>
-                                                <%--<div class="form-group">--%>
-                                                    <%--<div class="col-xs-12">--%>
-                                                        <%--<label class="ace-file-input"><input type="file" id="id-input-file-2"><span class="ace-file-container" data-title="Choose"><span class="ace-file-name" data-title="No File ..."><i class=" ace-icon fa fa-upload"></i></span></span><a class="remove" href="#"><i class=" ace-icon fa fa-times"></i></a></label>--%>
-                                                    <%--</div>--%>
-                                                <%--</div>--%>
-
-                                                <%--<div class="form-group">--%>
-                                                    <%--<div class="col-xs-12">--%>
-                                                        <%--<label class="ace-file-input ace-file-multiple"><input multiple="" type="file" id="id-input-file-3"><span class="ace-file-container" data-title="Drop files here or click to choose"><span class="ace-file-name" data-title="No File ..."><i class=" ace-icon ace-icon fa fa-cloud-upload"></i></span></span><a class="remove" href="#"><i class=" ace-icon fa fa-times"></i></a></label>--%>
-                                                    <%--</div>--%>
-                                                <%--</div>--%>
-
-                                                <%--<label>--%>
-                                                    <%--<input type="checkbox" name="file-format" id="id-file-format" class="ace">--%>
-                                                    <%--<span class="lbl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 仅允许图像</font></font></span>--%>
-                                                <%--</label>--%>
-                                            <%--</div>--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
-
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="name">
-                                        gradeId
-                                    </label>
-
-                                    <div class="col-sm-3">
-                                        <input type="text" autocomplete="off" id="gradeId" name="gradeId" maxlength="50" value="${grade.gradeId}"
-                                               class="required form-control"/>
-                                    </div>
-
-                                        <%--<label class="col-md-2 control-label no-padding-right" for="nameEn">--%>
-                                        <%--<spring:message code="user.nameEn"/>--%>
-                                        <%--</label>--%>
-
-                                        <%--<div class="col-sm-3">--%>
-                                        <%--<input type="text" autocomplete="off" id="nameEn" name="nameEn" maxlength="50" value="${admin.nameEn}"--%>
-                                        <%--class="required form-control"/>--%>
-                                        <%--</div>--%>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="name">
+                                    <label class="col-sm-3 control-label no-padding-right">
                                         班级名
                                     </label>
 
@@ -455,27 +345,27 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="name">
-                                        班级人数
-                                    </label>
+                                <%--<div class="form-group">--%>
+                                    <%--<label class="col-sm-3 control-label no-padding-right">--%>
+                                        <%--班级人数--%>
+                                    <%--</label>--%>
 
-                                    <div class="col-sm-3">
-                                        <input type="text" autocomplete="off" id="gradeNumber" name="gradeNumber" maxlength="50" value="${grade.gradeNumber}"
-                                               class="required form-control"/>
-                                    </div>
-                                </div>
+                                    <%--<div class="col-sm-3">--%>
+                                        <%--<input type="text" autocomplete="off" id="gradeNumber" name="gradeNumber" maxlength="50" value="${grade.gradeNumber}"--%>
+                                               <%--class="required form-control"/>--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
 
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="name">
-                                        平均分
-                                    </label>
+                                <%--<div class="form-group">--%>
+                                    <%--<label class="col-sm-3 control-label no-padding-right" >--%>
+                                        <%--平均分--%>
+                                    <%--</label>--%>
 
-                                    <div class="col-sm-3">
-                                        <input type="text" autocomplete="off" id="gradeAverage" name="gradeAverage" maxlength="50" value="${grade.gradeAverage}"
-                                               class="required form-control"/>
-                                    </div>
-                                </div>
+                                    <%--<div class="col-sm-3">--%>
+                                        <%--<input type="text" autocomplete="off" id="gradeAverage" name="gradeAverage" maxlength="50" value="${grade.gradeAverage}"--%>
+                                               <%--class="required form-control"/>--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
 
 
 

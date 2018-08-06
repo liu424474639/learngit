@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.biz.lesson.test.dao.admin.MenuItemTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.412 sec <<< FAILURE!
-testSaveMenuItem(com.biz.lesson.test.dao.admin.MenuItemTest)  Time elapsed: 0.143 sec  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.343 sec <<< FAILURE!
+testSaveMenuItem(com.biz.lesson.test.dao.admin.MenuItemTest)  Time elapsed: 0.809 sec  <<< ERROR!
 org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.biz.lesson.model.user.MenuItem.mainMenu -> com.biz.lesson.model.user.MainMenu; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.biz.lesson.model.user.MenuItem.mainMenu -> com.biz.lesson.model.user.MainMenu
 	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:381)
 	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:227)

@@ -23,8 +23,7 @@ public interface StudentRepository extends Repository<Student,Integer> {
     Student findByIdAndNameAndBirthday(Integer id, String name, String birthday);
     public Student save(Student student);
 
-
-    @Query("select o from Student o where id=(select max(id) from Student t1)")
+    @Query("select o from Student o where o.id=(select max(o.id) from Student t1)")
     public Student getStudentByMaxId();
 
     @Query("select o from Student o where o.name=?1 and o.sex=?2")
@@ -37,6 +36,24 @@ public interface StudentRepository extends Repository<Student,Integer> {
 //    public List<Student> queryLike1(String name);
 
     @Modifying
-    @Query("update Student o set o.name=:name where o.id=:id")
-    public void update(@Param("id") Integer id, @Param("name") String name);
+    @Query("update Student o set o.courseNumber=:courseNumber where o.id=:id")
+    public void update(@Param("id") Integer id, @Param("courseNumber") Integer courseNumber);
+
+    @Modifying
+    @Query("update Student o set  o.average=:average where o.id=:id")
+    public void updateAverage(@Param("id") Integer id,@Param("average") Integer average);
+
+    @Modifying
+    @Query("update Student o set o.StudentId=:studentId," +
+            "o.name=:name," +
+            "o.sex=:sex," +
+            "o.birthday=:birthday," +
+            "o.grade=:grade," +
+            "o.courseNumber=:courseNumber," +
+            "o.average=:average where o.id=:id")
+    public void updateAll(@Param("id") Integer id, @Param("name") String name,
+                          @Param("sex") String sex, @Param("studentId") String studentId,
+                          @Param("birthday") String birthday,@Param("grade") String grade,
+                          @Param("courseNumber") Integer courseNumber, @Param("average") Integer average);
+
 }

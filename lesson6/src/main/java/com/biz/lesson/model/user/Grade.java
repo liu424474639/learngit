@@ -1,6 +1,8 @@
 package com.biz.lesson.model.user;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by lyx on 2018/7/29.
@@ -9,6 +11,8 @@ import javax.persistence.*;
 @Table(name = "s_grade")
 public class Grade {
 
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Id
     private Integer gradeId;
 
     @Column(length = 100)
@@ -20,8 +24,22 @@ public class Grade {
     @Column(length = 100)
     private Integer gradeAverage;
 
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Id
+
+    @ManyToMany(targetEntity=Student.class,cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinTable(name = "student_grade", joinColumns = {
+            @JoinColumn(name = "gradeId", referencedColumnName = "gradeId")},inverseJoinColumns = {
+            @JoinColumn(name = "id", referencedColumnName = "id")})
+    private Set<Student> students = new HashSet<Student>();
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
+
+
     public Integer getGradeId() {
         return gradeId;
     }

@@ -32,7 +32,7 @@
             <ul class="breadcrumb">
                 <li>
                     <i class="ace-icon fa fa-home home-icon"></i>
-                    <a href="welcome.do">
+                    <a href="student/user/list.do">
                         <spring:message code="common.homepage"/>
                     </a>
                 </li>
@@ -41,7 +41,6 @@
                 </li>
             </ul><!-- /.breadcrumb -->
         </div>
-
         <div class="page-content">
             <input type="hidden" id="id-of-user">
             <div class="row">
@@ -108,56 +107,25 @@
 
                                         <td>
                                             <div class="hidden-sm hidden-xs btn-group">
-                                                <button class="btn btn-xs btn-info" value="修改">
+                                                <%--<button class="btn btn-xs btn-info" value="修改">--%>
+                                                    <%--<i class="ace-icon fa fa-pencil bigger-120"></i>--%>
+                                                <%--</button>--%>
+                                                <a data-id="${grade.gradeId}"
+                                                   href="student/grade/update.do?gradeId=${grade.gradeId}" class="btn btn-xs btn-info">
                                                     <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                                </button>
+                                                </a>
                                             </div>
                                         </td>
 
                                         <td>
                                             <div class="hidden-sm hidden-xs btn-group">
                                                 <a data-id="${grade.gradeId}"
-                                                   data-url="student/grade/save_delete.do" class="red btn-delete-modal">
-                                                    <i class="ace-icon fa fa-trash-o bigger-120"></i></span>
+                                                   data-url="student/grade/save_delete.do?gradeId=${grade.gradeId}" class="red btn-delete-modal">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                                 </a>
                                             </div>
                                         </td>
 
-
-                                            <div class="hidden-md hidden-lg">
-                                                <div class="inline pos-rel">
-                                                    <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown" data-position="auto">
-                                                        <i class="ace-icon fa fa-cog icon-only bigger-110"></i>
-                                                    </button>
-
-                                                    <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-                                                        <li>
-                                                            <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-																			<span class="blue">
-																				<i class="ace-icon fa fa-search-plus bigger-120"></i>
-																			</span>
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-																			<span class="green">
-																				<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-																			</span>
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-																			<span class="red">
-																				<i class="ace-icon fa fa-trash-o bigger-120"></i>
-																			</span>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </td>
                                     </tr>
 
                                     <tr class="detail-row">
@@ -173,75 +141,13 @@
                                                                     <a class="user-title-label" href="#">
                                                                         <i class="ace-icon fa fa-circle light-green"></i>
                                                                         &nbsp;
-                                                                        <span class="white">${student.name}</span>
+                                                                        <span class="white">${grade.gradeName}</span>
                                                                     </a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-xs-12 col-sm-7">
-                                                        <div class="space visible-xs"></div>
-
-                                                        <div class="profile-user-info profile-user-info-striped">
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name"> Username </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <span>${student.name}</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name"> StudentId </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <i class="fa fa-map-marker light-orange bigger-110"></i>
-                                                                    <span>${student.studentId}</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name"> Sex </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <span>${student.sex}</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name"> Grade </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <span>${student.grade}</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name"> Birthday </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <span>${student.birthday}</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name"> CourseNumber </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <span>${student.courseNumber}</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="profile-info-row">
-                                                                <div class="profile-info-name"> Average </div>
-
-                                                                <div class="profile-info-value">
-                                                                    <span>${student.average}</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
 
                                                     <div class="col-xs-12 col-sm-3">
                                                         <div class="space visible-xs"></div>
@@ -276,13 +182,15 @@
                                 </c:forEach>
 
                                 </tbody>
-                        </table>
-                    </div><!-- /.span -->
-                </div><!-- /.row -->
+                            </table>
+                        </div><!-- /.span -->
+                    </div><!-- /.row -->
 
-                <!-- PAGE CONTENT ENDS -->
-            </div><!-- /.col -->
-        </div><!-- /.row -->
+                    <!-- PAGE CONTENT ENDS -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
         </div>
+
     </jsp:body>
 </lesson:page>
+

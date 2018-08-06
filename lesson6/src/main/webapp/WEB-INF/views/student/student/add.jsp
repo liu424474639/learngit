@@ -444,6 +444,7 @@
                                         <%--class="required form-control"/>--%>
                                         <%--</div>--%>
                                 </div>
+
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label no-padding-right" for="name">
                                         姓名
@@ -454,8 +455,30 @@
                                                class="required form-control"/>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="sex">
+                                    <label class="col-sm-3 control-label no-padding-right" for="name">
+                                        班级
+                                    </label>
+
+                                    <div class="col-sm-3">
+                                        <select id="grade" name="grade">
+                                            <c:forEach items="${grades}" var="grade">
+
+                                                    <option value="${grade.gradeName}">${grade.gradeName}</option>
+
+                                            </c:forEach>
+                                            <%--<option value="A班">A班</option>--%>
+                                            <%--<option value="B班">B班</option>--%>
+                                            <%--<option value="C班">C班</option>--%>
+                                            <%--<option value="D班">D班</option>--%>
+                                        </select>
+                                        <br><br>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">
                                         性别
                                     </label>
                                     <div class="col-sm-3">
@@ -475,8 +498,8 @@
 
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label no-padding-right" for="birthday">
-                                        日期选择器
+                                    <label class="col-sm-3 control-label no-padding-right" >
+                                        出生日期
                                     </label>
                                     <div class="col-sm-3">
                                         <input class="form-control date-picker" id="id-date-picker-1" type="text" maxlength="50" data-date-format="dd-mm-yyyy" name="birthday">

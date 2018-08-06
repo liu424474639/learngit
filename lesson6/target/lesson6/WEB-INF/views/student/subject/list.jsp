@@ -72,7 +72,7 @@
                                     <th class="detail-col">Details</th>
                                     <th>Id</th>
                                     <th>学科名</th>
-                                    <th class="hidden-480">选修人</th>
+                                    <th class="hidden-480">选修人数</th>
                                     <th>平均分</th>
 
                                     <th>修改</th>
@@ -104,22 +104,26 @@
                                             <a href="#">${subject.subjectId}</a>
                                         </td>
                                         <td>${subject.subjectName}</td>
-                                        <td class="hidden-480">${subject.studentName}</td>
+                                        <td class="hidden-480">${subject.subjectNumber}</td>
                                         <td>${subject.subjectAverage}</td>
 
                                         <td>
                                             <div class="hidden-sm hidden-xs btn-group">
-                                                <button class="btn btn-xs btn-info" value="修改">
-                                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                                </button>
+                                                <%--<button class="btn btn-xs btn-info" value="修改">--%>
+                                                    <%--<i class="ace-icon fa fa-pencil bigger-120"></i>--%>
+                                                <%--</button>--%>
+                                                    <a data-id="${subject.subjectId}"
+                                                       href="student/subject/update.do?subjectId=${subject.subjectId}" class="btn btn-xs btn-info" value="修改" >
+                                                        <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                                    </a>
                                             </div>
                                         </td>
 
                                         <td>
                                             <div class="hidden-sm hidden-xs btn-group">
                                                 <a data-id="${subject.subjectId}"
-                                                   data-url="student/subject/save_delete.do" class="red btn-delete-modal">
-                                                    <i class="ace-icon fa fa-trash-o bigger-120"></i></span>
+                                                   data-url="student/subject/save_delete.do?subjectId=${subject.subjectId}" class="red btn-delete-modal">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                                 </a>
                                             </div>
                                         </td>

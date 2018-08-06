@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.biz.lesson.test.dao.admin.LoginLogTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.891 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.392 sec

@@ -123,35 +123,62 @@
 
                                         <td>${student.average}</td>
 
-                                        <td>
-                                            <div class="hidden-sm hidden-xs btn-group">
-                                                <button class="btn btn-xs btn-success" value="录入分数">
-                                                    <i class="ace-icon fa fa-check bigger-120"></i>
-                                                </button>
-                                            </div>
-                                        </td>
+                                        <%--<td>--%>
+                                            <%--<div class="hidden-sm hidden-xs btn-group">--%>
+                                                <%--<button class="btn btn-xs btn-success" value="录入分数">--%>
+                                                    <%--<i class="ace-icon fa fa-check bigger-120"></i>--%>
+                                                <%--</button>--%>
+                                            <%--</div>--%>
+                                        <%--</td>--%>
+
+                                        <%--<td>--%>
+                                            <%--<div class="hidden-sm hidden-xs btn-group">--%>
+                                                <%--<button class="btn btn-xs btn-warning" value="选课">--%>
+                                                    <%--<i class="ace-icon fa fa-flag bigger-120"></i>--%>
+                                                <%--</button>--%>
+                                            <%--</div>--%>
+                                        <%--</td>--%>
 
                                         <td>
                                             <div class="hidden-sm hidden-xs btn-group">
-                                                <button class="btn btn-xs btn-warning" value="选课">
+                                                <a
+                                                        href="student/user/doScore.do?id=${student.id}" class="btn btn-xs btn-warning">
                                                     <i class="ace-icon fa fa-flag bigger-120"></i>
-                                                </button>
+                                                </a>
                                             </div>
                                         </td>
 
                                         <td>
                                             <div class="hidden-sm hidden-xs btn-group">
-                                                <button class="btn btn-xs btn-info" value="修改" onclick="delete">
-                                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                                </button>
+                                                <a
+                                                   href="student/user/select_subject.do?id=${student.id}" class="btn btn-xs btn-warning">
+                                                    <i class="ace-icon fa fa-flag bigger-120"></i>
+                                                </a>
                                             </div>
                                         </td>
+
+                                        <td>
+                                            <div class="hidden-sm hidden-xs btn-group">
+                                                <a
+                                                    href="student/user/update.do?id=${student.id}" class="btn btn-xs btn-warning">
+                                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+
+                                        <%--<td>--%>
+                                            <%--<div class="hidden-sm hidden-xs btn-group">--%>
+                                                <%--<button class="btn btn-xs btn-info" value="修改">--%>
+                                                    <%--<i class="ace-icon fa fa-pencil bigger-120"></i>--%>
+                                                <%--</button>--%>
+                                            <%--</div>--%>
+                                        <%--</td>--%>
 
                                         <td>
                                             <div class="hidden-sm hidden-xs btn-group">
                                             <a data-id="${student.id}"
                                                data-url="student/user/save_delete.do" class="red btn-delete-modal">
-                                                <i class="ace-icon fa fa-trash-o bigger-120"></i></span>
+                                                <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                             </a>
                                             </div>
                                         </td>
@@ -190,7 +217,6 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                        </td>
                                     </tr>
 
                                     <tr class="detail-row">
@@ -262,7 +288,7 @@
                                                                 <div class="profile-info-name"> CourseNumber </div>
 
                                                                 <div class="profile-info-value">
-                                                                    <span>${student.courseNumber}</span>
+                                                                    <span data-value="0">${student.courseNumber}</span>
                                                                 </div>
                                                             </div>
 
@@ -270,7 +296,7 @@
                                                                 <div class="profile-info-name"> Average </div>
 
                                                                 <div class="profile-info-value">
-                                                                    <span>${student.average}</span>
+                                                                    <span data-value="0">${student.average}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
